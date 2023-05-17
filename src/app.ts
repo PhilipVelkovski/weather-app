@@ -16,7 +16,7 @@ const publicDirectory = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../public/templates/views");
 const partialPath = path.join(__dirname, "../public/templates/partials");
 const port = process.env.PORT || 3000;
-// Set up hbs engine
+// set up hbs view engine engine
 app.set("view engine", "hbs");
 app.set("views", viewsPath);
 hbs.registerPartials(partialPath);
@@ -26,7 +26,7 @@ app.use(express.static(publicDirectory));
 // index route
 app.get("", (req: express.Request, res: express.Response) => {
   res.render("index", {
-    indexTitle: "Wheather App",
+    indexTitle: "Weather App",
     name: "Filip",
   });
 });
@@ -70,7 +70,9 @@ app.get("/weather", (req: express.Request, res: express.Response) => {
           return res.send({ error: error });
         }
         res.send({
-          forcast: focastData.currentWheather.weather_descriptions[0],
+          forcast: focastData.currentWheather.weather_descriptions[0] + 
+          ". It is currently " + focastData.currentWheather.temperature + " degrees out. It feels like " +
+          focastData.currentWheather.feelslike + " degress out. The humidity is " + focastData.currentWheather.humidity + "%." ,
           location: geoData.place_name,
           address: req.query.address,
         });
@@ -85,6 +87,7 @@ app.get("*", (req: express.Request, res: express.Response) => {
     errorMessage: "Sorry page does not exist",
   });
 });
+// port
 app.listen(port, () => {
   console.log("Server started on port " + port);
 });

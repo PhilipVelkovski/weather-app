@@ -7,5 +7,8 @@ export default interface IgeoCode {
 export default interface Iwheater { 
     currentWheather: { 
         weather_descriptions: string[];
+        temperature: string;
+        feelslike: string;
+        humidity: string;
     }
 }
