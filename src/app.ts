@@ -15,7 +15,7 @@ const app = express();
 const publicDirectory = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../public/templates/views");
 const partialPath = path.join(__dirname, "../public/templates/partials");
-
+const port = process.env.PORT || 3000;
 // Set up hbs engine
 app.set("view engine", "hbs");
 app.set("views", viewsPath);
@@ -85,6 +85,6 @@ app.get("*", (req: express.Request, res: express.Response) => {
     errorMessage: "Sorry page does not exist",
   });
 });
-app.listen(3000, () => {
-  console.log("Server started");
+app.listen(port, () => {
+  console.log("Server started on port " + port);
 });
