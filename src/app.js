@@ -28,14 +28,14 @@ app.use(express_1.default.static(publicDirectory));
 app.get("", (req, res) => {
     res.render("index", {
         indexTitle: "Weather App",
-        name: "Filip",
+        name: "Filip Velkovski",
     });
 });
 // about route
 app.get("/about", (req, res) => {
     res.render("about", {
         aboutTitle: "About Page",
-        name: "Filip",
+        name: "Filip Velkovski",
     });
 });
 // help route
@@ -43,7 +43,7 @@ app.get("/help", (req, res) => {
     res.render("help", {
         helpTitle: "Help Page",
         helpText: "How can we help you ?",
-        name: "Filip",
+        name: "Filip Velkovski",
     });
 });
 // --- endpoints ---

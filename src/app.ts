@@ -27,7 +27,7 @@ app.use(express.static(publicDirectory));
 app.get("", (req: express.Request, res: express.Response) => {
   res.render("index", {
     indexTitle: "Weather App",
-    name: "Filip",
+    name: "Filip Velkovski",
   });
 });
 
@@ -35,7 +35,7 @@ app.get("", (req: express.Request, res: express.Response) => {
 app.get("/about", (req: express.Request, res: express.Response) => {
   res.render("about", {
     aboutTitle: "About Page",
-    name: "Filip",
+    name: "Filip Velkovski",
   });
 });
 
@@ -44,7 +44,7 @@ app.get("/help", (req: express.Request, res: express.Response) => {
   res.render("help", {
     helpTitle: "Help Page",
     helpText: "How can we help you ?",
-    name: "Filip",
+    name: "Filip Velkovski",
   });
 });
 // --- endpoints ---
@@ -81,13 +81,13 @@ app.get("/weather", (req: express.Request, res: express.Response) => {
   });
 });
 
-// non registerd routes
+// Non registerd routes
 app.get("*", (req: express.Request, res: express.Response) => {
   res.render("404", {
     errorMessage: "Sorry page does not exist",
   });
 });
-// port
+// Port
 app.listen(port, () => {
   console.log("Server started on port " + port);
 });
